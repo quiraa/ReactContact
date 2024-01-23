@@ -28,7 +28,7 @@ class ContactApp extends React.Component {
             id: + new Date(),
             name,
             tag,
-            imageUrl: '/images/arya.jpg'
+            imageUrl: '/images/profile-placeholder.png'
           }
         ]
       }
@@ -40,7 +40,7 @@ class ContactApp extends React.Component {
       <div className="contact-app">
         <h1>Aplikasi Kontak</h1>
         <h2>Tambah Kontak</h2>
-        <ContactInput addContact={this.onAddContactHandler``}/>
+        <ContactInput addContact={this.onAddContactHandler}/>
         <h1>Daftar Kontak</h1>
         <ContactList contacts={this.state.contacts} onDelete={this.onDeleteHandler}/>
       </div>
