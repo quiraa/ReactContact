@@ -5,18 +5,18 @@ import ContactInput from "./components/ContactInput";
 
 class ContactApp extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      contacts: getData()
-    }
+      contacts: getData(),
+    };
 
-    this.onDeleteHandler = this.onDeleteHandler.bind(this)
-    this.onAddContactHandler = this.onAddContactHandler.bind(this)
+    this.onDeleteHandler = this.onDeleteHandler.bind(this);
+    this.onAddContactHandler = this.onAddContactHandler.bind(this);
   }
 
   onDeleteHandler(id) {
-    const contacts = this.state.contacts.filter(contact => contact.id !== id)
-    this.setState({ contacts })
+    const contacts = this.state.contacts.filter((contact) => contact.id !== id);
+    this.setState({ contacts });
   }
 
   onAddContactHandler({ name, tag }) {
@@ -25,14 +25,14 @@ class ContactApp extends React.Component {
         contacts: [
           ...prevState.contacts,
           {
-            id: + new Date(),
+            id: +new Date(),
             name,
             tag,
-            imageUrl: '/images/profile-placeholder.png'
-          }
-        ]
-      }
-    })
+            imageUrl: "images/placeholder.jpg",
+          },
+        ],
+      };
+    });
   }
 
   render() {
@@ -40,12 +40,15 @@ class ContactApp extends React.Component {
       <div className="contact-app">
         <h1>Aplikasi Kontak</h1>
         <h2>Tambah Kontak</h2>
-        <ContactInput addContact={this.onAddContactHandler}/>
+        <ContactInput addContact={this.onAddContactHandler} />
         <h1>Daftar Kontak</h1>
-        <ContactList contacts={this.state.contacts} onDelete={this.onDeleteHandler}/>
+        <ContactList
+          contacts={this.state.contacts}
+          onDelete={this.onDeleteHandler}
+        />
       </div>
-    )
+    );
   }
 }
 
-export default ContactApp
+export default ContactApp;
